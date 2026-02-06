@@ -7,7 +7,7 @@
 }
 
 .header__nav {
-  padding: 22px;
+  padding: 22px 0;
   border-bottom: 1px solid var(--white);
   position: sticky;
   top: 0;
@@ -50,42 +50,97 @@
 .header__nav-tel:hover {
   color: var(--gray);
 }
-.banner{
+
+.banner {
   flex: 2 0 auto;
 }
-.banner__wrap{
+
+.banner__wrap {
   display: flex;
   align-items: center;
 }
-.banner__content{
+
+.banner__content {
   max-width: 706px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-
 }
-.banner__title{
+
+.banner__title {
   font-family: var(--ff);
-font-weight: 300;
-font-size: 64px;
-line-height: 90%;
-text-transform: uppercase;
-color: var(--white);
-
+  font-weight: 300;
+  font-size: clamp(1.875rem, 1.046rem + 4.15vw, 4rem);
+  line-height: 90%;
+  text-transform: uppercase;
+  color: var(--white);
 }
-.banner__desc{
+
+.banner__desc {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-
 }
-.banner__desc-slogan{
+
+.banner__desc-slogan {
   font-family: var(--ff);
-font-weight: 400;
-font-size: 20px;
-line-height: 140%;
-color: var(--gray);
-max-width: 350px;
-width: 100%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: var(--gray);
+  max-width: 350px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp:  3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 992px) {
+  .header__wrap {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  .header__nav-list {
+    order: 10;
+  }
+}
+
+@media screen and (max-width: 768px)
+ {
+  .header{
+    height: auto;
+  }
+  .header__nav{
+    position: static;
+  }
+  .header__wrap {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .header__nav-list {
+    order: unset;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .banner{
+height: 100svh;
+  }
+}
+@media screen and (max-width: 567px){
+  .banner__content{
+    align-items: center;
+    width: 100%;
+  }
+  .banner__title{
+    text-align: center;
+  }
+  .banner__desc{
+    flex-direction: column;
+    align-items: center;
+gap: 40px;
+  }
 }
